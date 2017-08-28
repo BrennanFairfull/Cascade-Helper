@@ -23,13 +23,12 @@ def test_samples():
 
 			readName = sys.argv[1] + '/' + img
 
-			#print(readName)
 			# read in image
 			image = cv2.imread(readName)
 			# convert to gray
 			gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 			# run cascade clasifer on image
-			results = cc.detectMultiScale(gray, 1.05, 0)
+			results = cc.detectMultiScale(gray, 1.05, 3)
 			# draw rectangles around each positive result
 			for x,y,w,h in results:
 				cv2.rectangle(image, (x,y), (x+w, y+h), (255,255,0), 3)
